@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Choice Quiz - Math Learning Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-top">
+                <button class="back-btn" onclick="window.location.href='index.html'">← Back to Hub</button>
+                <h1>✅ Multiple Choice Quiz</h1>
+                <p>Test your knowledge with interactive questions</p>
+            </div>
+        </header>
+
+        <div class="quiz-progress">
+            <div class="progress-bar">
+                <div class="progress-fill" id="quizProgressFill"></div>
+            </div>
+            <span class="progress-text" id="quizProgressText">Question 0 of 0</span>
+        </div>
+
+        <div class="quiz-container" id="quizContainer">
+            <div class="question-card" id="questionCard">
+                <div class="question-header">
+                    <h2 id="questionText">Click "Start Quiz" to begin</h2>
+                </div>
+                
+                <div class="options-container" id="optionsContainer">
+                    <!-- Options will be populated here -->
+                </div>
+
+                <div class="feedback-container" id="feedbackContainer" style="display: none;">
+                    <div class="feedback-message" id="feedbackMessage"></div>
+                    <div class="explanation" id="explanation"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quiz-controls">
+            <button class="btn btn-primary" id="startQuizBtn">Start Quiz</button>
+            <button class="btn btn-secondary" id="nextQuestionBtn" disabled>Next Question</button>
+            <button class="btn btn-success" id="finishQuizBtn" disabled>Finish Quiz</button>
+            <button class="btn btn-danger" id="resetQuizBtn" disabled>Reset Quiz</button>
+        </div>
+        
+        <div class="quiz-settings">
+            <label class="setting-toggle">
+                <input type="checkbox" id="autoAdvanceToggle" checked>
+                <span class="toggle-label">Auto-advance to next question</span>
+            </label>
+        </div>
+
+        <div class="quiz-stats">
+            <div class="stat-item">
+                <span class="stat-label">Correct:</span>
+                <span class="stat-value" id="quizCorrectCount">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Incorrect:</span>
+                <span class="stat-value" id="quizIncorrectCount">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Accuracy:</span>
+                <span class="stat-value" id="quizAccuracyRate">0%</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Score:</span>
+                <span class="stat-value" id="quizTotalScore">0</span>
+            </div>
+        </div>
+
+        <div class="results-container" id="resultsContainer" style="display: none;">
+            <h3>Quiz Results</h3>
+            <div class="results-summary">
+                <div class="result-item">
+                    <span class="result-label">Final Score:</span>
+                    <span class="result-value" id="finalScore">0</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Total Questions:</span>
+                    <span class="result-value" id="totalQuestions">0</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Correct Answers:</span>
+                    <span class="result-value" id="finalCorrect">0</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Accuracy:</span>
+                    <span class="result-value" id="finalAccuracy">0%</span>
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="restartQuiz()">Take Quiz Again</button>
+        </div>
+    </div>
+
+    <script src="multiple-choice.js"></script>
+</body>
+</html>

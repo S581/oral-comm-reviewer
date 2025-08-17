@@ -8,6 +8,7 @@ class FlashcardApp {
         this.currentStreak = 0;
         this.bestStreak = 0;
         this.totalScore = 0;
+        this.startTime = null;
         this.answeredCards = new Set(); // Track which cards have been answered
         
         // Sample flashcards - you can customize these!
@@ -618,6 +619,7 @@ class FlashcardApp {
         this.incorrectAnswers = 0;
         this.currentStreak = 0;
         this.totalScore = 0;
+        this.startTime = Date.now();
         this.answeredCards.clear();
         
         this.showCard();
@@ -857,6 +859,9 @@ class FlashcardApp {
         this.totalScoreElement.textContent = this.totalScore;
         this.currentStreakElement.textContent = this.currentStreak;
         this.bestStreakElement.textContent = this.bestStreak;
+        
+        // Save stats to localStorage
+        this.saveStatsToLocalStorage();
     }
     
     // Method to add custom flashcards
@@ -887,6 +892,22 @@ class FlashcardApp {
             this.showCard();
         }
         this.updateUI();
+    }
+    
+    // Method to save stats to localStorage
+    saveStatsToLocalStorage() {
+        const stats = {
+            correctCount: this.correctAnswers,
+            incorrectCount: this.incorrectAnswers,
+            totalCards: this.flashcards.length,
+            accuracy: this.getAccuracy(),
+            totalScore: this.totalScore,
+            currentStreak: this.currentStreak,
+            bestStreak: this.bestStreak,
+            studyTime: this.startTime ? Date.now() - this.startTime : 0,
+            timestamp: Date.now()
+        };
+        localStorage.setItem('flashcardStats', JSON.stringify(stats));
     }
 }
 
