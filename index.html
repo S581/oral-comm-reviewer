@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard Review</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📚 Flashcard Review</h1>
+            <p>Master your knowledge with interactive flashcards</p>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <span class="progress-text" id="progressText">0 / 0</span>
+        </div>
+
+        <div class="flashcard-container">
+            <div class="flashcard" id="flashcard">
+                <div class="flashcard-inner" id="flashcardInner">
+                    <div class="flashcard-front">
+                        <div class="card-content">
+                            <h2 id="questionText">Click "Start Review" to begin</h2>
+                        </div>
+                    </div>
+                    <div class="flashcard-back">
+                        <div class="card-content">
+                            <h2 id="answerText">Answer will appear here</h2>
+                            <div class="scoring-buttons" id="scoringButtons" style="display: none;">
+                                <button class="score-btn score-correct" id="correctBtn">✅ Correct</button>
+                                <button class="score-btn score-incorrect" id="incorrectBtn">❌ Incorrect</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="btn btn-primary" id="startBtn">Start Review</button>
+            <button class="btn btn-secondary" id="flipBtn" disabled>Flip Card</button>
+            <button class="btn btn-success" id="nextBtn" disabled>Next Card</button>
+            <button class="btn btn-danger" id="resetBtn" disabled>Reset</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-label">Correct:</span>
+                <span class="stat-value" id="correctCount">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Incorrect:</span>
+                <span class="stat-value" id="incorrectCount">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Accuracy:</span>
+                <span class="stat-value" id="accuracyRate">0%</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Score:</span>
+                <span class="stat-value" id="totalScore">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Current Streak:</span>
+                <span class="stat-value" id="currentStreak">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Best Streak:</span>
+                <span class="stat-value" id="bestStreak">0</span>
+            </div>
+        </div>
+
+        <div class="card-navigation">
+            <button class="nav-btn" id="prevCardBtn" disabled>← Previous</button>
+            <span class="card-counter" id="cardCounter">Card 0 of 0</span>
+            <button class="nav-btn" id="nextCardBtn" disabled>Next →</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
